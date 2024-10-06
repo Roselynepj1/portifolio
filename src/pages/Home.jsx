@@ -11,13 +11,21 @@ import wordpressIcon from '/src/assets/svg/wordpress.svg'
 import githubIcon from '/src/assets/svg/github.svg'
 import npmIcon from '/src/assets/svg/npm.svg'
 import vscodeIcon from '/src/assets/svg/vscode.svg'
-import SkillButton from '../components/SkillButton'
+import nodejsIcon from '/src/assets/svg/node-js.svg'
+import phpIcon from '/src/assets/svg/php.svg'
+import circleciIcon from '/src/assets/svg/circleci.svg'
+import laravelIcon from '/src/assets/svg/laravel.svg'
+import kubernetesIcon from '/src/assets/svg/kubernetes.svg'
+import javaIcon from '/src/assets/svg/java.svg'
+import typescriptIcon from '/src/assets/svg/typescript.svg'
 
+import SkillButton from '../components/SkillButton'
 import MyLink from '../components/MyLink'
 import ProjectCard from '../components/ProjectCard'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { FreeMode,   Pagination } from 'swiper/modules'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -127,7 +135,7 @@ const Home = () => {
             </div>
             <div>
               <h4 className='text-2xl font-bold mb-4'>
-                My Proficient Skillset
+                My Proficient Skill Set
               </h4>
               <div className='flex flex-wrap gap-4'>
                 <SkillButton icon={htmlIcon} alt='HTML Icon' label='HTML 5' />
@@ -155,6 +163,33 @@ const Home = () => {
                   label='VsCode'
                 />
                 <SkillButton icon={npmIcon} alt='NPM Icon' label='NPM' />
+                <SkillButton
+                  icon={nodejsIcon}
+                  alt='Nodejs Icon'
+                  label='Node JS'
+                />
+                <SkillButton icon={phpIcon} alt='PHP Icon' label='PHP' />
+                <SkillButton
+                  icon={circleciIcon}
+                  alt='Circle CI Icon'
+                  label='Circle CI'
+                />
+                <SkillButton
+                  icon={laravelIcon}
+                  alt='Laravel Icon'
+                  label='Laravel'
+                />
+                <SkillButton
+                  icon={kubernetesIcon}
+                  alt='Kubernetes Icon'
+                  label='Kubernetes'
+                />
+                <SkillButton icon={javaIcon} alt='Java Icon' label='Java' />
+                <SkillButton
+                  icon={typescriptIcon}
+                  alt='TypeScript Icon'
+                  label='TypeScript'
+                />
               </div>
             </div>
           </div>
@@ -184,7 +219,12 @@ const Home = () => {
             slidesPerView={1}
             spaceBetween={30}
             loop={true}
-            className='mySwiper'
+            className='mySwiper' 
+            pagination={{
+              dynamicBullets: true,
+            }}
+            freeMode={true}
+            modules={[  Pagination,FreeMode]}
           >
             {loading ? (
               <>

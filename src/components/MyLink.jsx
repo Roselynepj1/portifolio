@@ -9,7 +9,7 @@ const MyLink = ({ label, href, classes, target='' }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: false }}
-      className={`border p-2 sm:p-2 uppercase font-bold text-sm sm:text-xl border-black hover:bg-black hover:text-white transition dark:text-white dark:border-neutral-50 ${classes}`}
+      className={`border py-2 sm:py-2 px-4 uppercase font-bold text-sm sm:text-xl border-black hover:bg-black hover:text-white transition dark:text-white dark:border-neutral-50 ${classes}`}
     >
       {label}
     </motion.a>

@@ -8,7 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import ProjectLoader from '../components/ProjectLoader'
 
 const Project = () => {
-  const [project, setproject] = useState({})
+  const [project, setProject] = useState({})
   const params = useParams()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
@@ -31,7 +31,7 @@ const Project = () => {
       const docRef = doc(db, 'projects', id)
       const docSnap = await getDoc(docRef)
       if (docSnap.exists()) {
-        setproject(docSnap.data())
+        setProject(docSnap.data())
         setLoading(false)
       }
     }
@@ -87,9 +87,9 @@ const Project = () => {
                   Tools Used
                 </h4>
                 <div className='flex-wrap gap-4 flex items-start'>
-                  <SkillButton label='HTML 5' />
-                  <SkillButton label='Javascript' />
-                  <SkillButton label='CSS 3' />
+                  {project.techStack.map((stack,index) => (
+                    <SkillButton label={stack} key={`stack-${index}`} />
+                  ))} 
                 </div>
               </div>
             </div>
