@@ -18,6 +18,12 @@ import laravelIcon from '/src/assets/svg/laravel.svg'
 import kubernetesIcon from '/src/assets/svg/kubernetes.svg'
 import javaIcon from '/src/assets/svg/java.svg'
 import typescriptIcon from '/src/assets/svg/typescript.svg'
+import figmaIcon from '/src/assets/svg/figma.svg'
+import sqlIcon from '/src/assets/svg/sql.svg'
+import kotlinIcon from '/src/assets/svg/kotlin.svg'
+import adobeIndesignIcon from '/src/assets/svg/adobe-indesign.svg'
+import adobeXdIcon from '/src/assets/svg/adobe-xd.svg'
+import uiUxIcon from '/src/assets/svg/ui-ux.svg'
 
 import SkillButton from '../components/SkillButton'
 import MyLink from '../components/MyLink'
@@ -25,7 +31,7 @@ import ProjectCard from '../components/ProjectCard'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { FreeMode,   Pagination } from 'swiper/modules'
+import { FreeMode, Pagination, Navigation } from 'swiper/modules'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -190,6 +196,24 @@ const Home = () => {
                   alt='TypeScript Icon'
                   label='TypeScript'
                 />
+                <SkillButton icon={figmaIcon} alt='Figma Icon' label='Figma' />
+                <SkillButton icon={sqlIcon} alt='SQL Icon' label='SQL' />
+                <SkillButton
+                  icon={kotlinIcon}
+                  alt='Kotlin Icon'
+                  label='Kotlin'
+                />
+                <SkillButton
+                  icon={adobeIndesignIcon}
+                  alt='Adobe Indesign Icon'
+                  label='Adobe Indesign'
+                />
+                <SkillButton
+                  icon={adobeXdIcon}
+                  alt='Adobe Xd Icon'
+                  label='Adobe Xd'
+                />
+                <SkillButton icon={uiUxIcon} alt='UI/UX Icon' label='UI/UX' />
               </div>
             </div>
           </div>
@@ -219,12 +243,13 @@ const Home = () => {
             slidesPerView={1}
             spaceBetween={30}
             loop={true}
-            className='mySwiper' 
+            navigation={true}
+            className='mySwiper'
             pagination={{
               dynamicBullets: true,
             }}
-            freeMode={true}
-            modules={[  Pagination,FreeMode]}
+            // freeMode={true}
+            modules={[Pagination,  Navigation]}
           >
             {loading ? (
               <>
