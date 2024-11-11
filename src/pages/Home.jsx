@@ -31,14 +31,14 @@ import ProjectCard from '../components/ProjectCard'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { FreeMode, Pagination, Navigation } from 'swiper/modules'
+import {  Pagination, Navigation } from 'swiper/modules'
 
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import { useDarkMode } from '../hooks/useDarkMode'
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs, orderBy, query } from 'firebase/firestore'
 import { db } from '../../firebase.config'
 import ProjectLoader from '../components/ProjectLoader'
 
@@ -49,8 +49,10 @@ const Home = () => {
 
   useEffect(() => {
     const getProjects = async () => {
-      const docRefs = collection(db, 'projects')
-      const docSnaps = await getDocs(docRefs)
+      const projectsCollection = collection(db, 'projects')
+      // Create a query to order documents by 'projectNumber'
+      const q = query(projectsCollection, orderBy('projectNumber','asc'))
+      const docSnaps = await getDocs(q)
       const data = []
       if (!docSnaps.empty) {
         docSnaps.docs.forEach((doc) => {
